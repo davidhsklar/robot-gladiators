@@ -1,26 +1,53 @@
-// to create a custom function use this code and replace fight
+var playerName = window.prompt(" What is your robots name? ");
+var playerHealth = 100;
+var playerAttack = 10;
 
-var playerName = window.prompt("What is your robot's name?");
+// You can also log multiple var values
+console.log(playerName, playerAttack, playerHealth)
 
-var playerName = "David";
+var enemyName = "Roberto";
+var enemyHealth = 50;
+var enemyAttack = 12;
 
-// prompt that gets answered and logged for dev side
-console.log(playerName);
+/* this creates the fight function which is custom and can be replaced by any word and
+can also be done by just typing function fight parentheis code block open */
 
-console.log("This leaves a string, good for leaving a message");
-console.log(10+10);
-console.log("Our robots name is"  +  playerName);
+//starts the round
+var fight = function() {
+    window.alert("Welcome to Robot Gladiators");
 
-// Ready for Battle
+// reduces enemy health
+enemyHealth = enemyHealth - playerAttack;
 
-console.log(playerName + "is ready for battle!");
+//logs enemy health loss message
+console.log(playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining.");
 
-// Your Robot has won!
+//check enemy health
 
-console.log ("Your Robot"  +  playerName  +  "has won!");
-
-function fight() {
-    window.alert("The fight has begun!");
+if (enemyHealth <=0) {
+    window.alert(enemyName + " has died ");
+}
+else {
+    window.alert(enemyName + " still has " + enemyHealth + " left ");
 }
 
-// fight();
+//reduces player health
+playerHealth = playerHealth - enemyAttack
+
+//logs player health loss message
+console.log(enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining ");
+
+
+//check player health
+
+if (playerHealth <= 0) {
+    window.alert(playerName + " has died!");
+  } 
+  else {
+    window.alert(playerName + " still has " + playerHealth + " health left.");
+  }
+
+}
+
+// this executes the created function
+fight();
