@@ -13,7 +13,7 @@ var enemyAttack = 12;
 /* this creates the fight function which is custom and can be replaced by any word and
 can also be done with random words */
 
-var fight = function() {
+var welcomefight = function() {
     window.alert("Welcome to Robot Gladiators");
 }
 
@@ -59,7 +59,7 @@ var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
 if (confirmSkip) {
     window.alert("Fine, see ya later loser!");
-} else fight();
+} else welcomefight();
    
 
 } else {
@@ -89,5 +89,5 @@ if (playerMoney <=7) {
 
 
 // this executes the created function
-fight();
+welcomefight();
 promptfight();
