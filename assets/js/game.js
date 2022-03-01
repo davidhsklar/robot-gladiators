@@ -62,17 +62,24 @@ if (confirmSkip) {
 } else welcomefight();
    
 
+} else if (confirmSkip === "skip" || confirmSkip === "SKIP") {
+    
 } else {
     window.alert("Invalid option, please try again");
+
 }
+
 
 //if skipped penalize money
 
 if (promptfight === "skip" || promptfight === "SKIP") {
     window.alert("You have been penalized 2 Robot coins!");
-} else {
-    window.alert("congrats on not being a coward");
+} 
+
+if (confirmSkip = "Invalid option, please try again") {
+    window.alert("Please reload your page and try again");
 }
+
 
 //logs money loss
 if (promptfight === "skip" || promptfight === "SKIP") {
