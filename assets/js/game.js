@@ -1,3 +1,9 @@
+// Game States
+// "WIN" - Player robot has defeated all enemy-robots
+//    * Fight all enemy-robots
+//    * Defeat each enemy-robot
+// "LOSE" - Player robot's health is zero or less
+
 var playerName = window.prompt("What is your robots name?");
 var playerHealth = 100;
 var playerAttack = 10;
@@ -6,7 +12,7 @@ var playerMoney = 10;
 // You can also log multiple var values
 console.log(playerName, playerAttack, playerHealth)
 
-var enemyName = "Roberto";
+var enemyNames = ["Roberto" , "Amy the Beautiful" , "Ivan the Terrible"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
@@ -17,7 +23,7 @@ var welcomefight = function() {
     window.alert("Welcome to Robot Gladiators");
 }
 
-var promptfight = function() {
+var promptfight = function(enemyName) {
 
 
 // fight skip prompt
@@ -70,6 +76,7 @@ if (confirmSkip) {
 }
 
 
+
 //if skipped penalize money
 
 if (promptfight === "skip" || promptfight === "SKIP") {
@@ -77,7 +84,6 @@ if (promptfight === "skip" || promptfight === "SKIP") {
 } 
 
 if (confirmSkip = "Invalid option, please try again") {
-    window.alert("Please reload your page and try again");
 }
 
 
@@ -93,8 +99,27 @@ if (playerMoney <=7) {
     window.alert(playerName + " stop skipping! ");
   } 
   
+/* this is a basic loop
+
+console.log(enemyNames[0]);
+console.log(enemyNames[1]);
+console.log(enemyNames[2]);
+console.log(enemyNames.length);
+for(var i = 0; i < enemyNames.length; i++) {
+    console.log(enemyNames[i]);
+    console.log(i);
+    console.log(enemyNames[i], " is at " + i + " index ");
+}
+
+// How to do a loop, i refers to starting index point which should be 0 as that is the start
+of the index, next is boolean execution which is true or false expression
+then how much you want the loop to increase by should always be i++ or ++i which is equal to index+1
+
+*/
 
 
 // this executes the created function
-welcomefight();
-promptfight();
+for(var i = 0; i < enemyNames.length; i++) {
+  promptfight(enemyNames[i]);
+}
+
