@@ -15,9 +15,70 @@ var enemyHealth = 50;
 var enemyAttack = 12;
 
 /* this creates the fight function which is custom and can be replaced by any word and
-can also be done with random words */
+can also be done with random words.  this defines the function */
+
+// function to start a new game
+var startGame = function() {
+
+// reset player stats
+
+  playerHealth = 100;
+  playerAttack = 10;
+  playerMoney = 10;
+
+    for (var i = 0; i < enemyNames.length; i++) {
+      if (playerHealth > 0) {
+        window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
+  
+        var pickedEnemyName = enemyNames[i];
+  
+        enemyHealth = 50;
+  
+        fight(pickedEnemyName);
+      }
+      else {
+        window.alert("You have lost your robot in battle! Game Over!");
+        break;
+      }
+    }
+
+    // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
+  endGame();
+
+      // play again
+
+  startGame();
+};
+
+// function to end the entire game
+
+var endGame = function() {
+    window.alert("The game has now ended. Let's see how you did!");
+    //if the player is still alive, the player wins!
+
+    if (playerHealth > 0) {
+    window.alert(" Congrats, on surviving the Thunder Dome.  You now have a score of "  + playerMoney + ".");
+ 
+    } else {
+        window.alert(" Uh, oh.  You are dead. ");
+    }
+
+    // ask them if they want to play again
+
+    var playAgainConfirm = window.confirm("Would you like to play again?");
+    if (playAgainConfirm) {
+        startGame();
+    } else {
+        window.alert(" Fine, be a quitter ");
+    }
+
+  }
+  
+
 
 var fight = function(enemyName) {
+
+//below are the function statements
 // insert condition about health points since those need to be positive to fight
    while (playerHealth > 0 && enemyHealth > 0) {
 
@@ -124,23 +185,5 @@ break;
 }
 
 
-
-/* this is a basic loop
-
-console.log(enemyNames[0]);
-console.log(enemyNames[1]);
-console.log(enemyNames[2]);
-console.log(enemyNames.length);
-for(var i = 0; i < enemyNames.length; i++) {
-    console.log(enemyNames[i]);
-    console.log(i);
-    console.log(enemyNames[i], " is at " + i + " index ");
-}
-
-// How to do a loop, line 106 is the actual loop script where i refers to starting index point 
-which should be 0 as that is the start of the index, next is boolean execution which is true or false expression
-then how much you want the loop to increase by should always be i++ or ++i which is equal to index+1.
-you can call created functions within a loop which also defines how the function will run in the script
-
-*/
-
+// start the game when the page loads
+startGame()
