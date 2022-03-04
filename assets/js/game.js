@@ -1,8 +1,3 @@
-// Game States
-// "WIN" - Player robot has defeated all enemy-robots
-//    * Fight all enemy-robots
-//    * Defeat each enemy-robot
-// "LOSE" - Player robot's health is zero or less
 
 var welcomefight = window.alert("Welcome to the Thunder Dome");
 
@@ -206,10 +201,24 @@ var randomNumber = function(min, max) {
     return value;
   };
 
+// function to set name
+var getPlayerName = function() {
+    var name = "";
+  
+while (name === "" || name === "null") {
+name = prompt("What is your robot's name?");
+    
+}
+console.log("Your robot's name is " + name);
+    return name;
+  };
+
+   
+
 // Player and Enemy info
 
 var playerInfo = {
-    name: window.prompt("What is your robot's name?"),
+    name: getPlayerName(),
     health: 100,
     attack: 10,
     money: 10,
