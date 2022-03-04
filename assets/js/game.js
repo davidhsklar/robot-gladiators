@@ -14,6 +14,58 @@ var enemyNames = ['Roborto', 'Amy the Beautiful', 'Ivan the Terrible'];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
+
+
+// function to start a new game
+var startGame = function() {
+
+// reset player stats
+
+  playerHealth = 100;
+  playerAttack = 10;
+  playerMoney = 10;
+
+   // fight each enemy-robot by looping over them and fighting them one at a time.  Create the loop and call
+    // the fight function within the loop.  this is still an open function itself.
+
+    for (var i = 0; i < enemyNames.length; i++) {
+      if (playerHealth > 0) {
+        window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
+  
+        var pickedEnemyName = enemyNames[i];
+  
+        enemyHealth = randomNumber(40, 60);
+  
+        fight(pickedEnemyName);
+
+           // if player is still alive and we're not at the last enemy in the array
+      if (playerHealth > 0 && i < enemyNames.length - 1) {
+       
+        // ask if player wants to use the store before next round
+        var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
+      
+        // if yes, take them to the store() function
+        if (storeConfirm) {
+          shop();
+        }
+      }
+    }
+
+    // if player is not alive, break out of the loop and let endGame function run
+    else {
+      window.alert("You have lost your robot in battle! Game Over!");
+      break;
+    }
+  }
+
+    // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
+  endGame();
+
+      // play again
+  startGame();
+  
+};
+
 /* this creates the fight function which is custom and can be replaced by any word and
 can also be done with random words.  this defines the function */
 
@@ -98,57 +150,6 @@ var fight = function(enemyName) {
     }
     }
     };
-    
-
-// function to start a new game
-var startGame = function() {
-
-// reset player stats
-
-  playerHealth = 100;
-  playerAttack = 10;
-  playerMoney = 10;
-
-   // fight each enemy-robot by looping over them and fighting them one at a time.  Create the loop and call
-    // the fight function within the loop.  this is still an open function itself.
-
-    for (var i = 0; i < enemyNames.length; i++) {
-      if (playerHealth > 0) {
-        window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
-  
-        var pickedEnemyName = enemyNames[i];
-  
-        enemyHealth = randomNumber(40, 60);
-  
-        fight(pickedEnemyName);
-
-           // if player is still alive and we're not at the last enemy in the array
-      if (playerHealth > 0 && i < enemyNames.length - 1) {
-       
-        // ask if player wants to use the store before next round
-        var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
-      
-        // if yes, take them to the store() function
-        if (storeConfirm) {
-          shop();
-        }
-      }
-    }
-
-    // if player is not alive, break out of the loop and let endGame function run
-    else {
-      window.alert("You have lost your robot in battle! Game Over!");
-      break;
-    }
-  }
-
-    // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
-  endGame();
-
-      // play again
-  startGame();
-  
-};
 
 // function to end the entire game
 
